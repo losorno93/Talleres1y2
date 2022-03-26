@@ -44,4 +44,32 @@ for(let i=0; i<50; i++){
     alimentos.push(alimento)
 }
 
-console.log(alimentos)
+
+function filtrarAlimentos (alimentos,callback){
+
+    setTimeout(function(){
+
+    let alimentosfiltrados=alimentos.filter(function(alimento){
+        return(alimento.tipo=="vegetal"&&alimento.nivel>200)
+
+    })
+    console.log(alimentosfiltrados)
+
+    callback(alimentosfiltrados)
+},5000)
+
+}
+
+filtrarAlimentos(alimentos,function(alimentos){
+    let sumaNivel=0
+    alimentos.forEach(function(alimento){
+        sumaNivel = sumaNivel + alimento.nivel
+    })
+    console.log(alimentos)
+    console.log(`la sumatoria de niveles de
+    energía entregados por los alimentos vegetales consumidos en
+    la dieta de Grogu:${sumaNivel}`)
+    
+  
+  })
+
